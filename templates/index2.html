@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://kit.fontawesome.com/41861d81bb.js" crossorigin="anonymous"></script>
+
+    <title>SOLDIERS HEALTH MONITORING SYSTEM</title>
+    <style>
+        body
+        {
+            background: url( {{ url_for('static', path='/2.jpg') }} );
+    
+        }
+    </style>
+</head>
+<body style="background-size: cover;">
+<div class="container"> <br> 
+  <div class="row">
+
+    <ul class="collection with-header col s12 z-depth-3 " style="background-color: rgba(15, 15, 15, 0.712);">
+      <li class="collection-header N/A transparent teal-text"><h5> Personal Info</h5></li>
+  {% for i in all %}
+      <li class="collection-item avatar N/A transparent" onclick="route({{i.id}})" >
+        <i class="material-icons circle teal"style="font-size:20px">person</i>
+        <span class="title teal-text">{{i.name}}</span>
+        <p class="teal-text ">Age: 19</p>
+        <a href="" target="blank" class="secondary-content">
+           <span style="padding: 30px;"><i class="fas fa-heartbeat"style="font-size: 30PX;"></i> {{i.BPM}} </span>
+           <span><i class="fas fa-fire"style="font-size: 30PX;" ></i> {{i.temp}} </span>
+        </a>
+
+      </li>
+  {% endfor %}
+  </ul>
+
+  </div>
+   
+
+</div>
+
+<script>
+
+function route(val){
+  
+  window.location.href = "users/?id="+String(val);
+
+}
+
+</script>
+
+<script src ="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
